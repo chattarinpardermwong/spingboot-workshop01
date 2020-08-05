@@ -3,10 +3,16 @@ package com.example.demo;
 public class UsersResponse {
     private int id;
     private String name;
+    private int age;
 
     public UsersResponse(int id,String name) {
+        this(id,name,0);
+    }
+
+    public UsersResponse(int id, String name, int age) {
         this.id = id;
         this.name = name;
+        this.age = age;
     }
 
     public int getId() {
