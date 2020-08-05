@@ -15,6 +15,10 @@ public class UsersResponse {
         this.age = age;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public int getId() {
         return id;
     }

@@ -20,7 +20,7 @@ public class UserController {
         List<UsersResponse> usersResponseList = new ArrayList<>();
         Iterable<User> users = userRepository.findAll();
         for (User user:users){
-            usersResponseList.add(new UsersResponse(user.getId(), user.getName()));
+            usersResponseList.add(new UsersResponse(user.getId(), user.getName(), user.getAge()));
         }
 //        usersResponseList.add(new UsersResponse(1,"user1"));
 //        usersResponseList.add(new UsersResponse(2,"user2"));
@@ -47,7 +47,7 @@ public class UserController {
     @GetMapping("/users/{id}")
     public UsersResponse getUserById(@PathVariable int id){
         Optional<User> user = userRepository.findById(id);
-        return new UsersResponse(user.get().getId(), user.get().getName(), user.get().getAge());
+        return new UsersResponse(user.get().getId(), user.get().getName());
 //        return new UsersResponse(id, "User " + id);
     }
 
