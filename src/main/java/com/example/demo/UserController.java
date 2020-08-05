@@ -52,7 +52,7 @@ public class UserController {
         user.setName(request.getName());
         user.setAge(request.getAge());
         user = userRepository.save(user);
-        return new UsersResponse(user.getId(), request.getName() + request.getAge());
+        return new UsersResponse(user.getId(), user.getName() + user.getAge());
     }
 
     @PostMapping(path = "/users1")
