@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -45,7 +46,9 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public UsersResponse getUserById(@PathVariable int id){
-        return new UsersResponse(id, "User " + id);
+        Optional<User> user = userRepository.findById(id);
+        return new UsersResponse(user.get().getId(), user.get().getName());
+//        return new UsersResponse(id, "User " + id);
     }
 
     @PostMapping("/users")
